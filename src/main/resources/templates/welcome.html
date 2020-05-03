@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<script src="/static/jquery-3.5.0.min.js"></script>
+<head>
+    <title>titties</title>
+</head>
+<input>
+<h1>Welcome to vulnerable Demo</h1>
+<label for="username"><b>Username</b></label>
+<input id="username" type="text" name="username" disabled="disabled"></input>
+
+<label for="email"><b>Email</b></label>
+<input id="email" type="text" name="email" disabled="disabled"></input>
+
+<label for="first_name"><b>First name</b></label>
+<input id="first_name" type="text" name="first_name" disabled="disabled"></input>
+
+<label for="lastname"><b>Lastname</b></label>
+<input id="lastname" type="text" name="lastname" disabled="disabled"></input>
+</body>
+</html>
+
+<script>
+    $.getJSON('/api/user', function(data) {
+        document.getElementById("username").value = data['username'];
+        document.getElementById("email").value = data['email'];
+        document.getElementById("first_name").value = data['first_name'];
+        document.getElementById("lastname").value = data['lastname'];
+   });
+</script>
